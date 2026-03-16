@@ -1,27 +1,25 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.jetbrains.compose.compiler)
-}
-
-kotlin {
-    jvmToolchain(11)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hiltAndroid)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
-    namespace = "org.example.project"
-    // compile sdk is the API version in which your app is compiled with
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    namespace = "com.example.rxtracker"
+    compileSdk = 36
 
     defaultConfig {
-        applicationId = "org.example.project"
-        // min sdk is the lowest API version of Android you support
-        minSdk = libs.versions.android.minSdk.get().toInt()
-        // target sdk is the API version your app is designed and tested to run on
-        targetSdk = libs.versions.android.targetSdk.get().toInt()
-
+        applicationId = "com.example.rxtracker"
+        minSdk = 26
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -34,11 +32,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     buildFeatures {
         compose = true
+    }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_17)
     }
 }
 
@@ -53,4 +57,32 @@ dependencies {
     implementation(libs.composables.ripple)
 
     debugImplementation(libs.compose.ui.tooling)
+
+    debugImplementation(libs.leakcanary.android)
+
+    // ViewModel
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
+    // Navigation
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.hilt.navigation.compose)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
+
+    // Room
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+
+    // Calendar
+    implementation(libs.calendar)
+
+    implementation(libs.kotlinx.serialization.json)
+
+    implementation(libs.kotlinx.datetime)
 }

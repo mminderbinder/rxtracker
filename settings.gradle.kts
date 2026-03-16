@@ -1,4 +1,4 @@
-rootProject.name = "android-boilerplate"
+rootProject.name = "rxtracker"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {

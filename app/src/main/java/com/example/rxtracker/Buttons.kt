@@ -1,4 +1,4 @@
-package org.example.project
+package com.example.rxtracker
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -10,6 +10,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.rxtracker.uikit.styling.RxTrackerTheme
+import com.example.rxtracker.uikit.styling.colors
+import com.example.rxtracker.uikit.styling.focusRing
+import com.example.rxtracker.uikit.styling.onPrimary
+import com.example.rxtracker.uikit.styling.outline
+import com.example.rxtracker.uikit.styling.primary
+import com.example.rxtracker.uikit.styling.shapes
+import com.example.rxtracker.uikit.styling.small
 import com.composeunstyled.Button
 import com.composeunstyled.Text
 import com.composeunstyled.focusRing
@@ -25,11 +33,11 @@ fun PrimaryButton(onClick: () -> Unit, modifier: Modifier = Modifier, content: @
         interactionSource = interactionSource,
         modifier = modifier
             .minimumInteractiveComponentSize()
-            .outline(1.dp, Theme[colors][outline], Theme[shapes][smallShape])
-            .focusRing(interactionSource, 2.dp, Theme[colors][focusRing], Theme[shapes][smallShape]),
-        backgroundColor = Theme[colors][primaryColor],
-        contentColor = Theme[colors][onPrimaryColor],
-        shape = Theme[shapes][smallShape],
+            .outline(1.dp, Theme[colors][outline], Theme[shapes][small])
+            .focusRing(interactionSource, 2.dp, Theme[colors][focusRing], Theme[shapes][small]),
+        backgroundColor = Theme[colors][primary],
+        contentColor = Theme[colors][onPrimary],
+        shape = Theme[shapes][small],
         contentPadding = PaddingValues(horizontal = 12.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalAlignment = Alignment.CenterVertically,
@@ -46,9 +54,9 @@ fun GhostButton(onClick: () -> Unit, modifier: Modifier = Modifier, content: @Co
         interactionSource = interactionSource,
         modifier = modifier
             .minimumInteractiveComponentSize()
-            .focusRing(interactionSource, 2.dp, Theme[colors][focusRing], Theme[shapes][smallShape]),
+            .focusRing(interactionSource, 2.dp, Theme[colors][focusRing], Theme[shapes][small]),
         backgroundColor = Color.Transparent,
-        shape = Theme[shapes][smallShape],
+        shape = Theme[shapes][small],
         contentPadding = PaddingValues(horizontal = 12.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalAlignment = Alignment.CenterVertically,
@@ -60,7 +68,7 @@ fun GhostButton(onClick: () -> Unit, modifier: Modifier = Modifier, content: @Co
 @Preview
 @Composable
 private fun PrimaryButtonPreview() {
-    AppTheme {
+    RxTrackerTheme {
         PrimaryButton(onClick = {}) {
             Text("Primary Button")
         }
@@ -70,7 +78,7 @@ private fun PrimaryButtonPreview() {
 @Preview
 @Composable
 private fun GhostButtonPreview() {
-    AppTheme {
+    RxTrackerTheme {
         GhostButton(onClick = {}) {
             Text("Ghost Button")
         }

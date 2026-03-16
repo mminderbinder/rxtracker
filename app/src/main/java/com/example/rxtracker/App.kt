@@ -1,4 +1,4 @@
-package org.example.project
+package com.example.rxtracker
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -29,16 +29,21 @@ import com.composables.icons.lucide.ArrowRight
 import com.composables.icons.lucide.FileText
 import com.composables.icons.lucide.Lightbulb
 import com.composables.icons.lucide.Lucide
+import com.example.rxtracker.uikit.styling.RxTrackerTheme
+import com.example.rxtracker.uikit.styling.background
+import com.example.rxtracker.uikit.styling.colors
+import com.example.rxtracker.uikit.styling.textStyles
+import com.example.rxtracker.uikit.styling.title
 import com.composeunstyled.Icon
 import com.composeunstyled.Text
 import com.composeunstyled.theme.Theme
 
 @Composable
 fun App() {
-    AppTheme {
+    RxTrackerTheme {
         Column(
             modifier = Modifier
-                .background(Theme[colors][backgroundColor])
+                .background(Theme[colors][background])
                 .fillMaxSize()
                 .safeDrawingPadding(),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -48,7 +53,7 @@ fun App() {
                 modifier = Modifier.widthIn(max = 600.dp).fillMaxWidth().padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
-                Text("Compose Unstyled", style = Theme[textStyles][headerStyle])
+                Text("Compose Unstyled", style = Theme[textStyles][title])
 
                 Spacer(Modifier.height(16.dp))
 
