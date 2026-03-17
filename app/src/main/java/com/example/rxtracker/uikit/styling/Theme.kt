@@ -23,14 +23,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.rxtracker.uikit.styling.Appearance.Dark
-import com.example.rxtracker.uikit.styling.Appearance.Light
-import com.example.rxtracker.uikit.styling.Appearance.System
 import com.composeunstyled.theme.ComponentInteractiveSize
 import com.composeunstyled.theme.ThemeProperty
 import com.composeunstyled.theme.ThemeToken
 import com.composeunstyled.theme.buildTheme
 import com.composeunstyled.theme.rememberColoredIndication
+import com.example.rxtracker.uikit.styling.Appearance.Dark
+import com.example.rxtracker.uikit.styling.Appearance.Light
+import com.example.rxtracker.uikit.styling.Appearance.System
 
 // properties
 val colors = ThemeProperty<Color>("colors")
@@ -94,24 +94,24 @@ private fun animateColorPalette(targetPalette: Map<ThemeToken<Color>, Color>): M
 }
 
 val LightPalette = mapOf(
-    background to Color(0xFFFAFAFA),
-    onBackground to Color(0XFF0C0A09),
-    accent to Color(0xFF3B82F6),
+    background to Color(0xFFF8FAFC),
+    onBackground to Color(0xFF0F172A),
+    accent to Color(0xFF2563EB),   // blue-600
     onAccent to Color.White,
-    primary to Color(0XFF0C0A09),
+    primary to Color(0xFF0F172A),
     onPrimary to Color.White,
-    secondary to Color(0xFFf4f4f5),
-    onSecondary to Color(0xFF1c1917),
+    secondary to Color(0xFFEFF6FF),   // blue-50
+    onSecondary to Color(0xFF1E3A5F),
 
-    outline to Color(0XFF09090b).copy(alpha = 0.2f),
+    outline to Color(0xFF0F172A).copy(alpha = 0.15f),
     card to Color.White,
-    onCard to Color(0xFF18181B),
+    onCard to Color(0xFF1E293B),
     destructive to Color(0xFFDC2626),
     onDestructive to Color.White,
-    focusRing to Color(0xFF3B82F6).copy(alpha = 0.8f),
+    focusRing to Color(0xFF2563EB).copy(alpha = 0.8f),
 
-    navigation to Color(0xFFf4f4f5),
-    onNavigation to Color(0xFF1c1917),
+    navigation to Color(0xFFF1F5F9),   // slate-100, neutral for bottom bar
+    onNavigation to Color(0xFF1E293B),
 
     scrim to Color.Black.copy(alpha = 0.6f),
 )
@@ -119,8 +119,8 @@ val LightPalette = mapOf(
 val DarkPalette = mapOf(
     background to Color(0xFF27272A),
     onBackground to Color(0xFFF4F4F5),
-    accent to Color(0xFF3B82F6),
-    onAccent to Color.White,
+    accent to Color(0xFF60A5FA),   // blue-400, lighter for dark surfaces
+    onAccent to Color(0xFF1E3A5F),
     primary to Color(0xFFF4F4F5),
     onPrimary to Color(0xFF18181B),
     secondary to Color(0xFF3F3F46),
@@ -131,7 +131,7 @@ val DarkPalette = mapOf(
     onCard to Color(0xFFF4F4F5),
     destructive to Color(0xFFEF4444),
     onDestructive to Color.White,
-    focusRing to Color(0xFF3B82F6).copy(alpha = 0.8f),
+    focusRing to Color(0xFF60A5FA).copy(alpha = 0.8f),
 
     navigation to Color(0xFF3F3F46),
     onNavigation to Color(0xFFF4F4F5),

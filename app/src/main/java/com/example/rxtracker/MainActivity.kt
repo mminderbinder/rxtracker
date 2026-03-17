@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import com.example.rxtracker.navigation.AppNavigation
 import com.example.rxtracker.uikit.styling.RxTrackerTheme
 
 class MainActivity : ComponentActivity() {
@@ -11,7 +12,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            RxTrackerTheme
+            RxTrackerTheme {
+                AppNavigation()
+            }
         }
     }
 }

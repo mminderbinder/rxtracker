@@ -33,16 +33,16 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
+import com.composeunstyled.ProvideContentColor
+import com.composeunstyled.ProvideTextStyle
+import com.composeunstyled.outline
+import com.composeunstyled.theme.Theme
 import com.example.rxtracker.uikit.styling.colors
 import com.example.rxtracker.uikit.styling.onNavigation
 import com.example.rxtracker.uikit.styling.outline
 import com.example.rxtracker.uikit.styling.shadows
 import com.example.rxtracker.uikit.styling.subtle
 import com.example.rxtracker.uikit.styling.textStyles
-import com.composeunstyled.ProvideContentColor
-import com.composeunstyled.ProvideTextStyle
-import com.composeunstyled.outline
-import com.composeunstyled.theme.Theme
 
 @Composable
 fun TopAppBar(
@@ -89,7 +89,13 @@ fun TopAppBar(
             .consumeWindowInsets(WindowInsets.safeContent)
     ) {
         Spacer(Modifier.height(topPadding))
-        AppBar(contentColor = contentColor, navigation = navigation, title = title, actions = actions)
+        AppBar(
+            backgroundColor = backgroundColor,
+            contentColor = contentColor,
+            navigation = navigation,
+            title = title,
+            actions = actions
+        )
     }
 }
 
@@ -151,7 +157,9 @@ fun CenteredAppBar(
     modifier: Modifier = Modifier,
     contentColor: Color = Theme[colors][onNavigation],
 ) {
-    Box(modifier = modifier.height(52.dp).padding(2.dp)) {
+    Box(modifier = modifier
+        .height(52.dp)
+        .padding(2.dp)) {
         ProvideContentColor(contentColor) {
             if (navigation != null) {
                 Box(
@@ -191,4 +199,3 @@ fun CenteredAppBar(
         }
     }
 }
-
